@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700;900&family=Noto+Sans:wght@400;500;600;700&family=Poppins:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,200;1,300&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+    <script defer src="script.js"></script>
+    <title>15 puzzle</title>
+</head>
+<body>
+
+    <div class="puzzle">
+        <div class="puzzle-startscreen">
+            <p class="puzzle-startscreen__title">15 PUZZLE</p>
+            <button onclick="start()" class="puzzle-startscreen__start">START</button>
+        </div>
+        <div class="puzzle-board paused">
+            <div class="puzzle-board__tile" data-index="0">1</div>
+            <div class="puzzle-board__tile" data-index="1">2</div>
+            <div class="puzzle-board__tile" data-index="2">3</div>
+            <div class="puzzle-board__tile" data-index="3">4</div>
+            <div class="puzzle-board__tile" data-index="4">5</div>
+            <div class="puzzle-board__tile" data-index="5">6</div>
+            <div class="puzzle-board__tile" data-index="6">7</div>
+            <div class="puzzle-board__tile" data-index="7">8</div>
+            <div class="puzzle-board__tile" data-index="8">9</div>
+            <div class="puzzle-board__tile" data-index="9">10</div>
+            <div class="puzzle-board__tile" data-index="10">11</div>
+            <div class="puzzle-board__tile" data-index="11">12</div>
+            <div class="puzzle-board__tile" data-index="12">13</div>
+            <div class="puzzle-board__tile" data-index="13">14</div>
+            <div class="puzzle-board__tile puzzle-board__tile--empty" data-index="14"></div>
+            <div class="puzzle-board__tile" data-index="15">15</div>
+        </div>
+        <div class="bottom-bar paused">
+            <div onclick="reset()" class="restart-btn">
+                <ion-icon class="restart-icon" name="refresh"></ion-icon>
+            </div>
+            <div class="counter">
+                <p class="counter-text">Moves:</p>
+                <p class="counter-num">0</p>
+            </div>
+        </div>
+        <div class="results paused">
+            <div class="results-text">Congratulations!</div>
+            <div class="counter">
+                <p class="counter-text">Moves:</p>
+                <p class="counter-num results-tries">0</p>
+            </div>
+        </div>
+    </div>
+    
+</body>
+</html>

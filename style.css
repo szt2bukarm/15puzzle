@@ -1,0 +1,211 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: Lato;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+}
+
+html {
+  overflow: hidden;
+  background: radial-gradient(#415a77, #0d1b2a);
+}
+
+.puzzle {
+  width: 100%;
+  height: 100vh;
+  height: 100dvh;
+  display: flex;
+  flex-direction: column;
+  gap: 50px;
+  justify-content: center;
+  align-items: center;
+}
+@media screen and (max-width: 700px) {
+  .puzzle {
+    scale: 0.8;
+  }
+}
+@media screen and (max-width: 500px) {
+  .puzzle {
+    scale: 0.5;
+  }
+}
+.puzzle-startscreen {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 50px;
+  transition: all 150ms;
+  width: 500px;
+}
+.puzzle-startscreen__title {
+  font-size: 96px;
+  font-weight: 900;
+  color: #e0e1dd;
+  text-shadow: 0 0 50px #0d1b2a;
+}
+.puzzle-startscreen__start {
+  font-size: 48px;
+  border: 0;
+  padding: 10px 50px;
+  border-radius: 50px;
+  font-weight: 700;
+  color: #0d1b2a;
+  box-shadow: inset 0 0 20px rgba(13, 27, 42, 0.3137254902), 0 0 50px #0d1b2a;
+  transition: all 200ms;
+  color: #415a77;
+  cursor: pointer;
+}
+.puzzle-startscreen__start:hover {
+  scale: 0.95;
+  box-shadow: inset 0 0 20px #0d1b2a, 0 0 50px #0d1b2a;
+  background-color: #c7c9c2;
+}
+.puzzle-board {
+  scale: 0;
+  opacity: 0;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: repeat(4, 1fr);
+  gap: 15px;
+  padding: 30px;
+  background-color: #778da9;
+  border-radius: 20px;
+  box-shadow: inset 0 0 30px rgba(0, 0, 0, 0.3137254902), 0 0 100px rgba(0, 0, 0, 0.4392156863);
+  transition: all 300ms;
+  -webkit-animation: start 300ms forwards;
+          animation: start 300ms forwards;
+}
+.puzzle-board__tile {
+  width: 125px;
+  height: 125px;
+  padding: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #e0e1dd;
+  border-radius: 10px;
+  font-size: 38px;
+  color: #778da9;
+  font-weight: 900;
+  cursor: pointer;
+  transition: all 200ms;
+}
+.puzzle-board__tile:hover {
+  -webkit-animation: hoverTile 500ms infinite;
+          animation: hoverTile 500ms infinite;
+}
+.puzzle-board__tile--empty {
+  cursor: auto;
+  scale: 1.5;
+  opacity: 0;
+  pointer-events: none;
+}
+.puzzle-board__tile--empty:hover {
+  -webkit-animation: none;
+          animation: none;
+}
+
+.bottom-bar {
+  display: flex;
+  gap: 30px;
+  align-items: center;
+  scale: 0;
+  opacity: 0;
+  -webkit-animation: start 300ms forwards;
+          animation: start 300ms forwards;
+}
+
+.counter {
+  display: flex;
+  gap: 10px;
+}
+.counter-text, .counter-num {
+  font-size: 48px;
+  font-weight: 900;
+  text-shadow: 0 0 30px rgba(0, 0, 0, 0.5019607843);
+  color: #e0e1dd;
+}
+
+.restart-btn {
+  width: 68px;
+  height: 68px;
+  padding: 10px;
+  box-shadow: inset 0 0 30px rgba(0, 0, 0, 0.1882352941), 0 0 100px rgba(0, 0, 0, 0.1882352941);
+  background-color: #e0e1dd;
+  border-radius: 50%;
+  transition: all 200ms;
+}
+.restart-btn:hover {
+  rotate: 45deg;
+  background-color: #c7c9c2;
+}
+.restart-btn:active {
+  rotate: 90deg;
+  background-color: #afb1a7;
+}
+
+.restart-icon {
+  font-size: 48px;
+  transform: translateY(-3px);
+  font-weight: 700;
+  color: #0d1b2a;
+}
+
+.paused {
+  display: none !important;
+}
+
+.results {
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 20px;
+  background-color: #415a77;
+  box-shadow: 0 0 50px #000000;
+  border-radius: 20px;
+  padding: 40px;
+  opacity: 0;
+  scale: 0;
+  -webkit-animation: start 400ms forwards;
+          animation: start 400ms forwards;
+}
+.results-text {
+  font-size: 64px;
+  font-weight: 900;
+  color: #e0e1dd;
+  text-shadow: 0 0 30px rgba(0, 0, 0, 0.5019607843);
+}
+
+@-webkit-keyframes start {
+  to {
+    opacity: 1;
+    scale: 1;
+  }
+}
+
+@keyframes start {
+  to {
+    opacity: 1;
+    scale: 1;
+  }
+}
+@-webkit-keyframes hoverTile {
+  50% {
+    background-color: #bbbdb4;
+    box-shadow: 0 0 30px rgba(0, 0, 0, 0.3137254902);
+  }
+}
+@keyframes hoverTile {
+  50% {
+    background-color: #bbbdb4;
+    box-shadow: 0 0 30px rgba(0, 0, 0, 0.3137254902);
+  }
+}/*# sourceMappingURL=style.css.map */
